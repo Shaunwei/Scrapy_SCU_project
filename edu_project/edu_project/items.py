@@ -1,0 +1,25 @@
+# Define here the models for your scraped items
+#
+# See documentation in:
+# http://doc.scrapy.org/en/latest/topics/items.html
+
+from scrapy.item import Item, Field
+
+class EduProjectItem(Item):
+    # define the fields for your item here like:
+    # name = Field()
+    name = Field()
+    undergra_location = Field()
+    undergra_GPA = Field()
+    gra_location = Field()
+    gra_GPA = Field()
+    T = Field()
+    G = Field()
+    sub = Field()
+    background = Field()
+    applications = Field()
+    application_date = Field()
+    application_result = Field()
+    offer_date = Field()
+    offer_major= Field()
+    offer_school= Field()

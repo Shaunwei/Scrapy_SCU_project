@@ -1,0 +1,17 @@
+from scrapy.spider import Spider
+
+class one_ponit_three(Spider):
+    name = "1point3"
+    allowed_domains = ["1point3acres.com"]
+    start_urls = [
+        "http://www.1point3acres.com/bbs/thread-48343-1-1.html",
+        "http://www.1point3acres.com/bbs/thread-60659-1-1.html",
+    ]
+
+#each thread at about 38 is the useful link start
+    
+    def parse(self, response):
+        filename = ""
+        sel.xpath("//tr//a/@href").extract()
+        pass
+sel.xpath("//div[@id='JIATHIS_CODE_HTML4']").extract()
