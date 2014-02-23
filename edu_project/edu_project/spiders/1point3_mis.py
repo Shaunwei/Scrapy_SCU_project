@@ -1,4 +1,4 @@
-from edu_project.linksgen.links_cs13 import url_links
+from edu_project.linksgen.links_mis13 import url_links
 from scrapy import log
 from scrapy.http import Request
 from scrapy.selector import Selector
@@ -10,8 +10,8 @@ def nextURL():
     for next_url in list_of_url:
         yield next_url
 
-class one_ponit_three(Spider):
-    name = "1point3"
+class one_ponit_three_mis(Spider):
+    name = "1point3_mis"
     allowed_domains = ["1point3acres.com"]
     download_delay = 10
     
@@ -27,17 +27,17 @@ class one_ponit_three(Spider):
 #each thread at about 38 is the useful link start
     
     def parse(self, response):
-        filename = "Raw_data_cs.txt"
+        filename = "Raw_data_mis.txt"
         sel = Selector(response)
         #front-link = sel.xpath("//tr//a/@href").extract()
         raw_data = sel.xpath("//div[@id='JIATHIS_CODE_HTML4']").extract()
         with open(filename,'a') as f:
             f.write("\n=====NEXT=====\n")
             try:
-                f.write(raw_data[0].encode('utf8'))
+               f.write(raw_data[0].encode('utf8'))
             except IndexError:
-                print("index error")
-        
+               print("-------------------------ERROR--------------------")
+        #print raw_data[0].encode('utf8')
         
         next_url = self.url.next()
         yield Request(next_url)
